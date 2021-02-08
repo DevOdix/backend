@@ -30,7 +30,7 @@ app.get('/',(req,res) => {
      console.log('GET HELLO WORLD')
     res.send('Hello World')
 });
-
+const port = process.env.PORT || 5000;
 mongoose
 .connect(
   'mongodb+srv://' + process.env.DB_USER 
@@ -42,8 +42,8 @@ mongoose
 )
 .then(() => {
   console.log('connexion à la base mongoDB Cabinet Medical')
-  app.listen(5000, () => {
-    console.log(`Example app listening at http://localhost:5000`)
+  app.listen(port, () => {
+    console.log('Example app listening at http://localhost:'.port)
   })
    
 })
